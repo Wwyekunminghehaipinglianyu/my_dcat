@@ -13,6 +13,7 @@ void main(List<String> arguments) {
   final paths = argResults.rest;
 
   dcat(paths, showLineNumbers: argResults[lineNumber] as bool);
+
 }
 
 Future<void> dcat(List<String> paths, {bool showLineNumbers = false}) async {
@@ -45,4 +46,8 @@ Future<void> _handleError(String path) async {
   } else {
     exitCode = 2;
   }
+final quotes = File('quotes.txt');
+const stronger = 'That which does not kill us makes us stronger. -Nietzsche';
+
+await quotes.writeAsString(stronger, mode: FileMode.append);
 }
